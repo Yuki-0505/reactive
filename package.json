@@ -1,0 +1,32 @@
+{
+  "name": "reactive",
+  "version": "0.0.0",
+  "author": "shewulong",
+  "license": "ISC",
+  "description": "函数响应式核心",
+  "keywords": ["reactive"],
+  "type": "commonjs",
+  "module": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "repository": "https://github.com/Yuki-0505/reactive.git",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "tsc",
+    "publish:run": "pnpm build & pnpm publish",
+    "test": "vitest",
+    "test:run": "vitest run"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "vitest": "^0.23.4"
+  }
+}
