@@ -1,6 +1,6 @@
 {
   "name": "@micro-cube/reactive",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "author": "shewulong",
   "license": "MIT",
   "description": "基于 Function 和 Proxy 的响应式核心",
