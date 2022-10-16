@@ -1,11 +1,10 @@
 let currentEffect: () => void = null
-const cache = new Set<() => void>()
+const cache: Array<() => void> = []
 
 // 清空依赖缓存
 export function clear() {
-  for (const effect of cache) {
-    effect()
-    cache.delete(effect)
+  while (cache.length) {
+    cache.pop()()
   }
 }
 
@@ -19,7 +18,8 @@ export function track(effects: Set<() => void>) {
 // 触发依赖
 export function trigger(effects: Set<() => void>) {
   for (const effect of effects) {
-    cache.add(effect)
+    if (cache.includes(effect)) continue
+    cache.push(effect)
   }
   clear()
 }
