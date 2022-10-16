@@ -1,10 +1,16 @@
 {
   "name": "@micro-cube/reactive",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "shewulong",
-  "license": "ISC",
-  "description": "函数响应式核心",
-  "keywords": ["reactive"],
+  "license": "MIT",
+  "description": "基于 Function 和 Proxy 的响应式核心",
+  "keywords": [
+    "reactive",
+    "reactivity",
+    "proxy",
+    "MVVM",
+    "v-model"
+  ],
   "type": "commonjs",
   "module": "src/index.ts",
   "main": "dist/index.js",
