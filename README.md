@@ -18,7 +18,7 @@ pnpm i @micro-cube/reactive
 ## 案例
 
 ```ts
-import { useReactive, useEffect } from 'reactive'
+import { useReactive, useEffect } from '@micro-cube/reactive'
 
 const data = useReactive(1)
 let double = NaN
