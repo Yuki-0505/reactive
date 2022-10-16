@@ -39,4 +39,4 @@ console.log(double) // 6
 
 - [effect](https://github.com/Yuki-0505/reactive/blob/master/tests/effect.spec.ts)
 - [signal](https://github.com/Yuki-0505/reactive/blob/master/tests/signal.spec.ts)
-- [reactive](https://github.com/Yuki-0505/reactive/blob/master/tests/index.spec.ts)
+- [reactive](https://github.com/Yuki-0505/reactive/blob/master/tests/reactive.spec.ts)
