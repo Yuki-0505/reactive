@@ -35,8 +35,8 @@ console.log(double) // 6
 
 ## 测试
 
-> [测试用例](https://github.com/Yuki-0505/reactive/tests)
+> [测试用例](https://github.com/Yuki-0505/reactive/tree/master/tests)
 
-- [effect](https://github.com/Yuki-0505/reactive/tests/effect.spec.ts)
-- [signal](https://github.com/Yuki-0505/reactive/tests/signal.spec.ts)
-- [reactive](https://github.com/Yuki-0505/reactive/tests/index.spec.ts)
+- [effect](https://github.com/Yuki-0505/reactive/blob/master/tests/effect.spec.ts)
+- [signal](https://github.com/Yuki-0505/reactive/blob/master/tests/signal.spec.ts)
+- [reactive](https://github.com/Yuki-0505/reactive/blob/master/tests/index.spec.ts)
