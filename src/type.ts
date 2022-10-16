@@ -17,3 +17,18 @@ export type Option<T> = {
   effects: Set<() => void>
   value: T
 }
+
+export type ReactiveType<T> =
+  T extends Reactive<infer V> ? V : never
+
+export type DependencyType<T extends Reactive<any> | Reactive<any>[]> =
+  T extends Reactive<any>[]
+  ? DependenciesType<T>
+  : T extends Reactive<any>
+  ? ReactiveType<T>
+  : never
+
+export type DependenciesType<T> =
+  T extends [infer F, ...infer N]
+  ? [ReactiveType<F>, ...DependenciesType<N>]
+  : []
