@@ -7,6 +7,7 @@ export function useComputed<T>(accessor: ComputedProp<T>): Computed<ComputedProp
   let get: Getter<T>, set: Setter<T>
   if (typeof accessor === 'function') {
     get = accessor
+    set = () => { }
   } else if (typeof accessor === 'object') {
     ({
       get = () => null as T,
