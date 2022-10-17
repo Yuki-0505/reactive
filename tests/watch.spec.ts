@@ -1,6 +1,5 @@
 import { test, expect } from 'vitest'
 import { useReactive } from '../src/reactive'
-import { Reactive } from '../src/type'
 import { watch } from '../src/watch'
 
 test('watch', async () => {
@@ -8,14 +7,14 @@ test('watch', async () => {
   const data2 = useReactive(2)
 
   const ret1: number[] = []
-  watch(data1, (val) => {
-    ret1.push(val)
-  })
+  watch((value) => {
+    ret1.push(value)
+  }, data1)
 
   const ret2: [number, number][] = []
-  watch([data1, data2] as [Reactive<number>, Reactive<number>], (val) => {
-    ret2.push(val)
-  })
+  watch((value1, value2) => {
+    ret2.push([value1, value2])
+  }, data1, data2)
 
   data1(4)
   expect(ret1).toEqual([1, 4])

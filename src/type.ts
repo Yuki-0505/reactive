@@ -5,7 +5,7 @@ export interface Signal<T> {
 
 export type Reactive<T> = Signal<T> &
   (T extends object
-    ? { [key in keyof T]: Reactive<T[key]> }
+    ? { readonly [key in keyof T]: Reactive<T[key]> }
     : {})
 
 export type ReactiveMap<T> = {
