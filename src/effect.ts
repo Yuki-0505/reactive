@@ -1,10 +1,10 @@
-let currentEffect: () => void = null
+let currentEffect: (() => void) | null = null
 const cache: Array<() => void> = []
 
 // 清空依赖缓存
 export function clear() {
   while (cache.length) {
-    cache.pop()()
+    cache.pop()?.()
   }
 }
 

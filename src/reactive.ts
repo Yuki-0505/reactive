@@ -7,7 +7,7 @@ export function createProxy<T>(signal: Signal<T>, option: Option<T>) {
       const { reactiveMap, value } = option
 
       // 若属性的响应式对象已存在，直接返回
-      const reactive = reactiveMap[key]
+      const reactive = reactiveMap[key as keyof T]
       if (reactive) return reactive
 
       // signal 函数上的属性
@@ -18,7 +18,7 @@ export function createProxy<T>(signal: Signal<T>, option: Option<T>) {
       if (typeof value !== 'object' || value === null) return void 0
 
       // 生成属性的响应式对象，缓存并返回
-      return reactiveMap[key] = useReactive(value[key])
+      return reactiveMap[key as keyof T] = useReactive(value[key as keyof T]) as any
     }
   }) as Reactive<T>
 }

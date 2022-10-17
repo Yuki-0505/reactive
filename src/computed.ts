@@ -3,12 +3,15 @@ import { useReactive } from './reactive'
 import type { Getter, Setter, ComputedProp, Computed } from './type'
 
 export function useComputed<T>(accessor: ComputedProp<T>): Computed<ComputedProp<T>> {
-  const data = useReactive<T>(null)
-  let get: Getter<T> = () => null, set: Setter<T> = () => null
+  const data = useReactive<T>(null as T)
+  let get: Getter<T>, set: Setter<T>
   if (typeof accessor === 'function') {
     get = accessor
   } else if (typeof accessor === 'object') {
-    ({ get, set } = accessor)
+    ({
+      get = () => null as T,
+      set = () => { }
+    } = accessor)
   }
   useEffect(() => {
     data(get())
