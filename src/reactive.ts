@@ -15,7 +15,7 @@ export function createProxy<T>(signal: Signal<T>, option: Option<T>) {
       if (method != void 0) return method
 
       // 非对象类型的值，不能索引出属性
-      if (typeof value !== 'object') return void 0
+      if (typeof value !== 'object' || value === null) return void 0
 
       // 生成属性的响应式对象，缓存并返回
       return reactiveMap[key] = useReactive(value[key])
