@@ -1,3 +1,5 @@
+import { EffectFunction } from './type'
+
 let currentEffect: (() => void) | null = null
 const cache: Array<() => void> = []
 
@@ -24,7 +26,7 @@ export function trigger(effects: Set<() => void>) {
   clear()
 }
 
-export function useEffect(effect: () => void) {
+export function useEffect(effect: EffectFunction) {
   currentEffect = effect
   effect()
   currentEffect = null

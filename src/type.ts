@@ -29,21 +29,16 @@ export type ReactiveMap<T> = {
   [key in keyof T]: Reactive<T[key]>
 }
 
+export type EffectFunction = (...args: any[]) => any
+
 export type Option<T> = {
   reactiveMap: ReactiveMap<T>
-  effects: Set<() => void>
+  effects: Set<EffectFunction>
   value: T
 }
 
 export type ReactiveType<T> =
   T extends Reactive<infer V> ? V : never
-
-export type DependencyType<T extends Reactive<any> | Reactive<any>[]> =
-  T extends Reactive<any>[]
-  ? DependenciesType<T>
-  : T extends Reactive<any>
-  ? ReactiveType<T>
-  : never
 
 export type DependenciesType<T> =
   T extends [infer F, ...infer N]
